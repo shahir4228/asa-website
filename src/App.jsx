@@ -16,10 +16,10 @@ const projects = [
     link: 'https://stupendous-kashata-8764aa.netlify.app/',
   },
   {
-    icon: '📄',
-    title: 'Malnutrition Research',
-    desc: 'Youth Institute research paper on malnutrition in Afghanistan. Personal mission turned into published advocacy.',
-    tags: ['Research', 'Policy'],
+    icon: '🌾',
+    title: 'Borlaug Scholar — Food Security Research',
+    desc: 'Awarded Borlaug Scholar 2026 by the World Food Prize Foundation for research on food insecurity in Afghanistan. Hosted at the University of Minnesota.',
+    tags: ['Borlaug Scholar', 'Research', 'World Food Prize'],
     link: 'https://docs.google.com/document/d/1iPoukuzXuaDVe4DxNG3TIu0KD755J1xLycpINRqyp0w/edit',
   },
 ]
@@ -79,7 +79,7 @@ export default function App() {
           </div>
           <div className="about-stats">
             <div className="stat-card"><div className="stat-num">3</div><div className="stat-label">Projects shipped</div></div>
-            <div className="stat-card"><div className="stat-num">2028</div><div className="stat-label">Graduating class</div></div>
+            <div className="stat-card"><div className="stat-num">2026</div><div className="stat-label">Borlaug Scholar</div></div>
             <div className="stat-card"><div className="stat-num">MN</div><div className="stat-label">Minneapolis, USA</div></div>
             <div className="stat-card"><div className="stat-num">∞</div><div className="stat-label">Things to build</div></div>
           </div>
