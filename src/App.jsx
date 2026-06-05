@@ -6,18 +6,21 @@ const projects = [
     title: 'Eid Mubarak Card',
     desc: 'Interactive greeting card deployed live on Netlify. Animated, shareable, and built with love for Eid.',
     tags: ['React', 'Netlify'],
+    link: null,
   },
   {
     icon: '🇺🇸',
     title: 'Citizenship Quiz App',
     desc: 'React-based study tool for the U.S. citizenship test — helps new Americans prepare with confidence.',
     tags: ['React', 'Quiz App'],
+    link: 'https://stupendous-kashata-8764aa.netlify.app/',
   },
   {
     icon: '📄',
     title: 'Malnutrition Research',
     desc: 'Youth Institute research paper on malnutrition in Afghanistan. Personal mission turned into published advocacy.',
     tags: ['Research', 'Policy'],
+    link: null,
   },
 ]
 
@@ -94,6 +97,11 @@ export default function App() {
               <div className="project-tags">
                 {p.tags.map(t => <span className="tag" key={t}>{t}</span>)}
               </div>
+              {p.link && (
+                <a className="project-link" href={p.link} target="_blank" rel="noreferrer">
+                  View project →
+                </a>
+              )}
             </div>
           ))}
         </div>
