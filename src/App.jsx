@@ -6,7 +6,7 @@ const projects = [
     title: 'Eid Mubarak Card',
     desc: 'Interactive greeting card deployed live on Netlify. Animated, shareable, and built with love for Eid.',
     tags: ['React', 'Netlify'],
-    link: null,
+    link: 'https://vocal-torte-894817.netlify.app/',
   },
   {
     icon: '🇺🇸',
