@@ -20,7 +20,7 @@ const projects = [
     title: 'Malnutrition Research',
     desc: 'Youth Institute research paper on malnutrition in Afghanistan. Personal mission turned into published advocacy.',
     tags: ['Research', 'Policy'],
-    link: null,
+    link: 'https://docs.google.com/document/d/1iPoukuzXuaDVe4DxNG3TIu0KD755J1xLycpINRqyp0w/edit',
   },
 ]
 
