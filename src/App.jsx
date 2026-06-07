@@ -13,14 +13,14 @@ const projects = [
     title: 'Zaffron Kitchen',
     desc: 'Full restaurant website built for a real client. Includes menu, branding, and a clean user experience for diners.',
     tags: ['React', 'Netlify', 'Client Work'],
-    link: 'https://zaffronkitchen.netlify.app/',
+    link: null,
   },
   {
     icon: '✈️',
     title: 'Tourist Travel Website',
     desc: 'A travel and tourism website with destination pages and modern layout — built to practice UX design and responsive layouts.',
     tags: ['HTML', 'CSS', 'UX'],
-    link: 'https://relaxed-taiyaki-b3354e.netlify.app/',
+    link: null,
   },
   {
     icon: '🌙',
