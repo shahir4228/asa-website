@@ -1,4 +1,5 @@
 import './index.css'
+import { useState, useRef, useEffect } from 'react'
 
 const projects = [
   {
@@ -112,6 +113,130 @@ const languages = [
   { lang: 'Dari', level: 'Native' },
   { lang: 'Persian', level: 'Fluent' },
 ]
+
+const botQA = [
+  {
+    triggers: ['hello', 'hi', 'hey', 'sup', 'start'],
+    answer: "Hey! I'm Ahmad's assistant. Ask me about his projects, skills, background, or how to reach him.",
+  },
+  {
+    triggers: ['who', 'about', 'ahmad', 'yourself', 'person'],
+    answer: "Ahmad Shahir Ahmadi is a 10th grader from Minneapolis, originally from Afghanistan. He's a builder, researcher, and 4× Honor Roll student heading to Harvard Summer School in 2026.",
+  },
+  {
+    triggers: ['project', 'build', 'ship', 'website', 'work', 'portfolio'],
+    answer: "Ahmad has shipped 8 websites — including a restaurant site for Zaffron Kitchen, a car design showcase, a U.S. citizenship quiz app, and an interactive Eid card. He also earned the Borlaug Scholar award for research on food insecurity in Afghanistan.",
+  },
+  {
+    triggers: ['skill', 'tech', 'code', 'language', 'program'],
+    answer: "Ahmad codes in React, JavaScript, Python, and HTML/CSS. He also speaks 4 languages: English, Pashto, Dari, and Persian.",
+  },
+  {
+    triggers: ['harvard', 'summer', 'school'],
+    answer: "Ahmad was competitively selected to attend Harvard Summer School starting June 20, 2026 — a 7-week academic program at Harvard University.",
+  },
+  {
+    triggers: ['borlaug', 'research', 'food', 'afghanistan', 'scholar'],
+    answer: "Ahmad was named a Borlaug Scholar 2026 by the World Food Prize Foundation for his research on food insecurity in Afghanistan, hosted at the University of Minnesota.",
+  },
+  {
+    triggers: ['contact', 'reach', 'hire', 'email', 'collab', 'work with'],
+    answer: "You can reach Ahmad at shahir42881@gmail.com — he's open to collabs, client work, and good conversations.",
+  },
+  {
+    triggers: ['where', 'location', 'from', 'live', 'minneapolis'],
+    answer: "Ahmad is based in Minneapolis, Minnesota. He originally came from Afghanistan about 5 years ago.",
+  },
+  {
+    triggers: ['goal', 'future', 'plan', 'dream', 'university', 'college'],
+    answer: "Ahmad's goal is to attend Harvard University and pursue finance and software engineering. His theme for the next two years: build things, help people.",
+  },
+  {
+    triggers: ['book', 'writing', 'educational'],
+    answer: "Ahmad is currently writing an educational book focused on learning and student development — combining research, structured writing, and real experience.",
+  },
+]
+
+const suggestions = [
+  'Who is Ahmad?',
+  'What projects has he built?',
+  'What are his skills?',
+  'How do I contact him?',
+  'Tell me about Harvard',
+]
+
+function getResponse(input) {
+  const lower = input.toLowerCase()
+  for (const qa of botQA) {
+    if (qa.triggers.some(t => lower.includes(t))) return qa.answer
+  }
+  return "Good question! I don't have that answer, but you can email Ahmad directly at shahir42881@gmail.com."
+}
+
+function Chatbot() {
+  const [open, setOpen] = useState(false)
+  const [messages, setMessages] = useState([
+    { from: 'bot', text: "Hi! I'm Ahmad's assistant. What would you like to know?" }
+  ])
+  const [input, setInput] = useState('')
+  const bottomRef = useRef(null)
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages, open])
+
+  function send(text) {
+    const userMsg = text || input.trim()
+    if (!userMsg) return
+    setMessages(prev => [...prev, { from: 'user', text: userMsg }])
+    setInput('')
+    setTimeout(() => {
+      setMessages(prev => [...prev, { from: 'bot', text: getResponse(userMsg) }])
+    }, 400)
+  }
+
+  return (
+    <div className="chat-widget">
+      {open && (
+        <div className="chat-box">
+          <div className="chat-header">
+            <div>
+              <div className="chat-title">Ask about Ahmad</div>
+              <div className="chat-sub">Usually answers instantly</div>
+            </div>
+            <button className="chat-close" onClick={() => setOpen(false)}>✕</button>
+          </div>
+          <div className="chat-messages">
+            {messages.map((m, i) => (
+              <div key={i} className={`chat-msg ${m.from}`}>{m.text}</div>
+            ))}
+            <div ref={bottomRef} />
+          </div>
+          {messages.length === 1 && (
+            <div className="chat-suggestions">
+              {suggestions.map(s => (
+                <button key={s} className="chat-suggestion" onClick={() => send(s)}>{s}</button>
+              ))}
+            </div>
+          )}
+          <div className="chat-input-row">
+            <input
+              className="chat-input"
+              placeholder="Ask a question..."
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && send()}
+            />
+            <button className="chat-send" onClick={() => send()}>→</button>
+          </div>
+        </div>
+      )}
+      <button className="chat-bubble" onClick={() => setOpen(o => !o)}>
+        {open ? '✕' : '💬'}
+      </button>
+    </div>
+  )
+}
 
 function goTo(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -289,6 +414,8 @@ export default function App() {
         <span className="footer-left">© 2026 Ahmad Shahir Ahmadi</span>
         <span className="footer-right">Built with intention. Deployed on Netlify.</span>
       </footer>
+
+      <Chatbot />
     </>
   )
 }
