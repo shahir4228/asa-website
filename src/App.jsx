@@ -3,54 +3,55 @@ import { useState, useRef, useEffect } from 'react'
 import { BackgroundPaths, AnimatedHeroName } from './components/BackgroundPaths'
 import { CinematicFooter } from './components/ui/motion-footer'
 import { AnimatedText } from './components/ui/animated-underline-text-one'
+import { ElegantShape } from './components/ui/shape-landing-hero'
 
 const projects = [
   {
     icon: '🚗',
     title: 'Car Design Showcase',
-    desc: 'A sleek, visual website showcasing car designs with a modern aesthetic — built to demonstrate UI design and frontend skills.',
+    desc: 'Design-focused car website I built to push my CSS skills. Dark aesthetic, clean layout — mostly just me trying things and seeing what sticks.',
     tags: ['HTML', 'CSS', 'Design'],
     link: 'https://eloquent-gumdrop-c5a60a.netlify.app/',
   },
   {
     icon: '🍽️',
     title: 'Zaffron Kitchen',
-    desc: 'Full restaurant website built for a real client. Includes menu, branding, and a clean user experience for diners.',
+    desc: 'Real client work. Built a full restaurant website for Zaffron Kitchen — menu, branding, the whole thing. Actual people use it.',
     tags: ['React', 'Netlify', 'Client Work'],
     link: null,
   },
   {
     icon: '✈️',
     title: 'Tourist Travel Website',
-    desc: 'A travel and tourism website with destination pages and modern layout — built to practice UX design and responsive layouts.',
+    desc: 'Travel site with destination pages and responsive layouts. Built this to get better at UX — figuring out what makes a layout feel good to use.',
     tags: ['HTML', 'CSS', 'UX'],
     link: null,
   },
   {
     icon: '🌙',
     title: 'Eid Mubarak Card',
-    desc: 'Interactive animated greeting card deployed live on Netlify. Built with love for Eid — shareable and mobile-friendly.',
+    desc: 'Animated greeting card for Eid, deployed on Netlify. Made it for family first, then put it online. Still my most shared project.',
     tags: ['React', 'Netlify'],
     link: 'https://vocal-torte-894817.netlify.app/',
   },
   {
     icon: '🇺🇸',
     title: 'U.S. Citizenship Quiz App',
-    desc: 'React-based study tool for the U.S. citizenship test — helps new Americans prepare with confidence, question by question.',
+    desc: 'React quiz app to help people study for the citizenship test. Practical, nothing fancy — just a tool that actually works.',
     tags: ['React', 'Quiz App'],
     link: 'https://stupendous-kashata-8764aa.netlify.app/',
   },
   {
     icon: '🌾',
     title: 'Borlaug Scholar — Food Security Research',
-    desc: 'Awarded Borlaug Scholar 2026 by the World Food Prize Foundation for research on food insecurity in Afghanistan. Hosted at the University of Minnesota.',
+    desc: 'Named Borlaug Scholar 2026 by the World Food Prize Foundation for research I did on food insecurity in Afghanistan. Presented at the University of Minnesota.',
     tags: ['Borlaug Scholar', 'Research', 'World Food Prize'],
     link: 'https://docs.google.com/document/d/1iPoukuzXuaDVe4DxNG3TIu0KD755J1xLycpINRqyp0w/edit',
   },
   {
     icon: '📖',
     title: 'Educational Book Project',
-    desc: 'Currently writing an educational book on learning and student development — combining research, structured writing, and real experience.',
+    desc: 'Writing a book on learning and student development. Been going slower than I expected — turns out writing is harder than coding.',
     tags: ['Writing', 'Research', 'In Progress'],
     link: null,
   },
@@ -62,8 +63,8 @@ const experience = [
     org: 'Harvard University — Cambridge, MA',
     period: 'Jun – Aug 2026',
     points: [
-      'Competitively selected to attend Harvard Summer School as a high school student',
-      'Studying alongside students from around the world in an intensive academic environment',
+      'Got selected for Harvard Summer School — still kind of surreal honestly',
+      'Spending 7 weeks on campus studying alongside students from all over the world',
     ],
   },
   {
@@ -71,8 +72,8 @@ const experience = [
     org: 'World Food Prize Foundation — University of Minnesota',
     period: '2026',
     points: [
-      'Awarded Borlaug Scholar 2026 for independent research on food insecurity in Afghanistan',
-      'Presented research findings at a program hosted by the University of Minnesota',
+      'Named Borlaug Scholar 2026 for research on food insecurity in Afghanistan',
+      'Presented my findings at a University of Minnesota program through the World Food Prize Foundation',
     ],
   },
   {
@@ -80,8 +81,8 @@ const experience = [
     org: 'Asian Club — Brooklyn Center High School',
     period: '2025 – 2026',
     points: [
-      'Led marketing and outreach for club events, growing student awareness and participation',
-      'Managed club communications and collaborated on planning and organization',
+      'Ran marketing for the Asian Club — flyers, social posts, getting people to actually show up',
+      'Handled communications and helped plan events throughout the school year',
     ],
   },
   {
@@ -89,9 +90,9 @@ const experience = [
     org: 'Self-directed',
     period: '2024 – Present',
     points: [
-      'Researched global issues, world affairs, and AI including machine learning and neural networks',
-      'Authored a Youth Institute paper on malnutrition in Afghanistan',
-      'Currently writing an educational book on learning and student development',
+      'Spent a lot of time reading and writing about AI, food systems, and global issues on my own',
+      'Wrote a paper on malnutrition in Afghanistan for a Youth Institute program',
+      'Working on an educational book about learning — in progress, slower than I hoped',
     ],
   },
   {
@@ -99,7 +100,7 @@ const experience = [
     org: 'Brooklyn Center High School',
     period: '2023 – Present',
     points: [
-      'Competed on the school soccer team, developing discipline, teamwork, and strategy',
+      'On the school soccer team — one of the few things that gets me off the computer',
     ],
   },
 ]
@@ -120,43 +121,43 @@ const languages = [
 const botQA = [
   {
     triggers: ['hello', 'hi', 'hey', 'sup', 'start'],
-    answer: "Hey! I'm Ahmad's assistant. Ask me about his projects, skills, background, or how to reach him.",
+    answer: "Hey! I'm Ahmad's little assistant bot. Ask me anything about him — projects, background, how to reach him.",
   },
   {
     triggers: ['who', 'about', 'ahmad', 'yourself', 'person'],
-    answer: "Ahmad Shahir Ahmadi is a 10th grader from Minneapolis, originally from Afghanistan. He's a builder, researcher, and 4× Honor Roll student heading to Harvard Summer School in 2026.",
+    answer: "Ahmad Shahir Ahmadi — 10th grader from Minneapolis, originally from Afghanistan. Builds websites, does research, 4× Honor Roll. Heading to Harvard Summer School this summer.",
   },
   {
     triggers: ['project', 'build', 'ship', 'website', 'work', 'portfolio'],
-    answer: "Ahmad has shipped 8 websites — including a restaurant site for Zaffron Kitchen, a car design showcase, a U.S. citizenship quiz app, and an interactive Eid card. He also earned the Borlaug Scholar award for research on food insecurity in Afghanistan.",
+    answer: "He's shipped 8 real sites: a restaurant site for Zaffron Kitchen, a citizenship quiz app, a car showcase, an Eid card, and more. Also earned the Borlaug Scholar award for research on food security in Afghanistan.",
   },
   {
     triggers: ['skill', 'tech', 'code', 'language', 'program'],
-    answer: "Ahmad codes in React, JavaScript, Python, and HTML/CSS. He also speaks 4 languages: English, Pashto, Dari, and Persian.",
+    answer: "Codes in React, JavaScript, Python, and HTML/CSS. Speaks 4 languages too: English, Pashto, Dari, and Persian.",
   },
   {
     triggers: ['harvard', 'summer', 'school'],
-    answer: "Ahmad was competitively selected to attend Harvard Summer School starting June 20, 2026 — a 7-week academic program at Harvard University.",
+    answer: "He got into Harvard Summer School — 7 weeks on campus starting June 20, 2026. Pretty wild for a 10th grader.",
   },
   {
     triggers: ['borlaug', 'research', 'food', 'afghanistan', 'scholar'],
-    answer: "Ahmad was named a Borlaug Scholar 2026 by the World Food Prize Foundation for his research on food insecurity in Afghanistan, hosted at the University of Minnesota.",
+    answer: "Named Borlaug Scholar 2026 by the World Food Prize Foundation for research on food insecurity in Afghanistan. Presented at the University of Minnesota.",
   },
   {
     triggers: ['contact', 'reach', 'hire', 'email', 'collab', 'work with'],
-    answer: "You can reach Ahmad at shahir42881@gmail.com — he's open to collabs, client work, and good conversations.",
+    answer: "Email him at shahir42881@gmail.com. He's open to collabs, client work, whatever — just reach out.",
   },
   {
     triggers: ['where', 'location', 'from', 'live', 'minneapolis'],
-    answer: "Ahmad is based in Minneapolis, Minnesota. He originally came from Afghanistan about 5 years ago.",
+    answer: "Based in Minneapolis. Moved there from Afghanistan about 5 years ago. Still getting used to the cold apparently.",
   },
   {
     triggers: ['goal', 'future', 'plan', 'dream', 'university', 'college'],
-    answer: "Ahmad's goal is to attend Harvard University and pursue finance and software engineering. His theme for the next two years: build things, help people.",
+    answer: "Wants to go to Harvard and study finance and software engineering. For now: build things, help people.",
   },
   {
     triggers: ['book', 'writing', 'educational'],
-    answer: "Ahmad is currently writing an educational book focused on learning and student development — combining research, structured writing, and real experience.",
+    answer: "He's writing a book on learning and student development. Says it's going slower than coding. Still at it though.",
   },
 ]
 
@@ -173,13 +174,13 @@ function getResponse(input) {
   for (const qa of botQA) {
     if (qa.triggers.some(t => lower.includes(t))) return qa.answer
   }
-  return "Good question! I don't have that answer, but you can email Ahmad directly at shahir42881@gmail.com."
+  return "Not sure about that one. You can always just email Ahmad directly — shahir42881@gmail.com."
 }
 
 function Chatbot() {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState([
-    { from: 'bot', text: "Hi! I'm Ahmad's assistant. What would you like to know?" }
+    { from: 'bot', text: "Hey! Ask me anything about Ahmad." }
   ])
   const [input, setInput] = useState('')
   const bottomRef = useRef(null)
@@ -262,11 +263,39 @@ export default function App() {
       {/* HERO */}
       <section className="hero">
         <BackgroundPaths />
+
+        {/* floating geometric shapes */}
+        <ElegantShape
+          delay={0.3} width={520} height={130} rotate={12}
+          gradient="from-amber-500/[0.10]"
+          className="left-[-8%] top-[18%]"
+        />
+        <ElegantShape
+          delay={0.5} width={420} height={100} rotate={-14}
+          gradient="from-rose-500/[0.10]"
+          className="right-[-4%] top-[65%]"
+        />
+        <ElegantShape
+          delay={0.4} width={260} height={70} rotate={-7}
+          gradient="from-violet-500/[0.12]"
+          className="left-[8%] bottom-[12%]"
+        />
+        <ElegantShape
+          delay={0.6} width={180} height={52} rotate={22}
+          gradient="from-yellow-400/[0.12]"
+          className="right-[18%] top-[12%]"
+        />
+        <ElegantShape
+          delay={0.7} width={130} height={38} rotate={-26}
+          gradient="from-cyan-500/[0.10]"
+          className="left-[24%] top-[8%]"
+        />
+
         <p className="hero-eyebrow fade-up delay-1">Builder · Student · Creator · Researcher</p>
         <AnimatedHeroName firstName="Ahmad Shahir" lastName="Ahmadi" />
         <p className="hero-sub fade-up delay-3">
-          10th grader from Minneapolis. Originally from Afghanistan.
-          I ship real websites, research hard problems, and build things that help people.
+          10th grade, Minneapolis. Came from Afghanistan five years ago.
+          I build stuff, research things I care about, and try to make it count.
         </p>
         <div className="hero-btns fade-up delay-4">
           <button className="btn-primary" onClick={() => goTo('projects')}>See my work</button>
@@ -284,23 +313,22 @@ export default function App() {
         <AnimatedText text="About me" className="section-label" />
         <div className="about-grid">
           <div className="about-text">
-            I was born in <strong>Afghanistan</strong> and moved to Minneapolis five years ago.
-            My roots shaped who I am — my discipline, my values, and my drive to make something
-            meaningful out of every opportunity I get.
+            I grew up in <strong>Afghanistan</strong> and moved to Minneapolis about five years ago.
+            Still getting used to the winters, honestly.
             <br /><br />
-            I approach every project with <strong>intention and honesty</strong>. I do not rush.
-            I do not cut corners. I care about the work and the people it is built for.
+            School's been going well — <strong>Honor Roll four times</strong>, and this summer
+            I'm heading to <strong>Harvard Summer School</strong>, which still doesn't feel real.
+            But most of what I actually learn comes from just building things.
             <br /><br />
-            Academically, I am a four-time <strong>Honor Roll</strong> recipient at Brooklyn Center
-            High School, selected to attend <strong>Harvard Summer School</strong> in 2026.
-            I speak <strong>four languages</strong>, play soccer, research global issues,
-            and write about what I find.
+            I've shipped <strong>8 real websites</strong>. Not demos. Actual sites — for clients,
+            for competitions, for fun. I find a problem, figure it out, put something live.
+            That's how I work.
             <br /><br />
-            But most of all, I build. I have shipped <strong>8 real websites</strong> — live,
-            deployed, solving actual problems for actual people. I believe the best way to learn
-            is to create, and the best way to create is to care deeply about who you are building for.
+            I also write and research on the side — got named a <strong>Borlaug Scholar</strong>
+            in 2026 for work on food insecurity in Afghanistan. Working on a book too,
+            though it's going slower than coding does.
             <br /><br />
-            My theme for the next two years: <strong>build things, help people.</strong>
+            Four languages. Play soccer. Drink too much tea. That's pretty much me.
           </div>
           <div className="about-stats">
             <div className="stat-card"><div className="stat-num">8</div><div className="stat-label">Websites shipped</div></div>
