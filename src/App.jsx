@@ -1,6 +1,7 @@
 import './index.css'
 import { useState, useRef, useEffect } from 'react'
 import { BackgroundPaths, AnimatedHeroName } from './components/BackgroundPaths'
+import { CinematicFooter } from './components/ui/motion-footer'
 
 const projects = [
   {
@@ -410,10 +411,7 @@ export default function App() {
         </div>
       </section>
 
-      <footer>
-        <span className="footer-left">© 2026 Ahmad Shahir Ahmadi</span>
-        <span className="footer-right">Built with intention. Deployed on Netlify.</span>
-      </footer>
+      <CinematicFooter />
 
       <Chatbot />
     </>

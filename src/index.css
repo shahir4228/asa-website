@@ -1,9 +1,36 @@
+@import "tailwindcss";
+
+/* Map site tokens → shadcn-compatible names so CinematicFooter utilities resolve */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
+  /* Original site tokens */
   --gold: #c8b896; --gold-dark: #a8936e;
   --bg: #0d0d0d; --bg-card: #141414;
   --border: #252525; --border-light: #1e1e1e;
   --text: #f0ede6; --text-muted: #888; --text-dim: #555; --text-faint: #3a3a3a;
+
+  /* shadcn-compatible aliases (used by CinematicFooter) */
+  --background: #0d0d0d;
+  --foreground: #f0ede6;
+  --primary: #c8b896;
+  --primary-foreground: #0d0d0d;
+  --secondary: #141414;
+  --secondary-foreground: #f0ede6;
+  --muted: #141414;
+  --muted-foreground: #888;
+  --destructive: #ef4444;
+  --ring: #c8b896;
 }
 html { scroll-behavior: smooth; }
 body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
