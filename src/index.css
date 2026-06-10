@@ -66,7 +66,7 @@ nav { position:sticky; top:0; z-index:100; display:flex; justify-content:space-b
 .hero-badge span { display:block; font-size:10px; color:var(--gold); letter-spacing:2px; text-transform:uppercase; margin-bottom:6px; }
 
 .section { padding:80px 60px; border-bottom:0.5px solid var(--border-light); }
-.section-label { font-size:10px; color:var(--gold); letter-spacing:3px; text-transform:uppercase; margin-bottom:40px; }
+.section-label { display:block; font-size:10px; color:var(--gold); letter-spacing:3px; text-transform:uppercase; margin-bottom:40px; }
 
 .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
 .about-text { font-size:16px; color:var(--text-muted); line-height:1.85; }

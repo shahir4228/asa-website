@@ -2,6 +2,7 @@ import './index.css'
 import { useState, useRef, useEffect } from 'react'
 import { BackgroundPaths, AnimatedHeroName } from './components/BackgroundPaths'
 import { CinematicFooter } from './components/ui/motion-footer'
+import { AnimatedText } from './components/ui/animated-underline-text-one'
 
 const projects = [
   {
@@ -280,7 +281,7 @@ export default function App() {
 
       {/* ABOUT */}
       <section className="section" id="about">
-        <p className="section-label">About me</p>
+        <AnimatedText text="About me" className="section-label" />
         <div className="about-grid">
           <div className="about-text">
             I was born in <strong>Afghanistan</strong> and moved to Minneapolis five years ago.
@@ -314,7 +315,7 @@ export default function App() {
 
       {/* EXPERIENCE */}
       <section className="section" id="experience">
-        <p className="section-label">Experience &amp; Activities</p>
+        <AnimatedText text="Experience & Activities" className="section-label" />
         <div className="experience-list">
           {experience.map((e) => (
             <div className="exp-card" key={e.role}>
@@ -337,7 +338,7 @@ export default function App() {
 
       {/* PROJECTS */}
       <section className="section" id="projects">
-        <p className="section-label">Projects</p>
+        <AnimatedText text="Projects" className="section-label" />
         <div className="projects-grid">
           {projects.map((p) => (
             <div className="project-card" key={p.title}>
@@ -359,7 +360,7 @@ export default function App() {
 
       {/* SKILLS */}
       <section className="section" id="skills">
-        <p className="section-label">Skills &amp; Tools</p>
+        <AnimatedText text="Skills & Tools" className="section-label" />
         <div className="skills-row">
           {skills.map(s => <div className="skill-pill" key={s}>{s}</div>)}
         </div>
