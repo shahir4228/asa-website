@@ -1,5 +1,6 @@
 import './index.css'
 import { useState, useRef, useEffect } from 'react'
+import { BackgroundPaths, AnimatedHeroName } from './components/BackgroundPaths'
 
 const projects = [
   {
@@ -258,10 +259,9 @@ export default function App() {
 
       {/* HERO */}
       <section className="hero">
+        <BackgroundPaths />
         <p className="hero-eyebrow fade-up delay-1">Builder · Student · Creator · Researcher</p>
-        <h1 className="hero-name fade-up delay-2">
-          Ahmad Shahir<br /><em>Ahmadi</em>
-        </h1>
+        <AnimatedHeroName firstName="Ahmad Shahir" lastName="Ahmadi" />
         <p className="hero-sub fade-up delay-3">
           10th grader from Minneapolis. Originally from Afghanistan.
           I ship real websites, research hard problems, and build things that help people.
