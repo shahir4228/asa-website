@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 
 // Animated SVG path lines — renders behind hero content
 function FloatingPaths({ position }) {
@@ -73,7 +73,7 @@ export function AnimatedHeroName({ firstName = 'Ahmad Shahir', lastName = 'Ahmad
               stiffness: 150,
               damping: 25,
             }}
-            style={{ display: 'inline-block' }}
+            style={{ display: 'inline-block', backfaceVisibility: 'hidden', willChange: 'transform' }}
           >
             {char === ' ' ? ' ' : char}
           </motion.span>
@@ -91,7 +91,7 @@ export function AnimatedHeroName({ firstName = 'Ahmad Shahir', lastName = 'Ahmad
               stiffness: 150,
               damping: 25,
             }}
-            style={{ display: 'inline-block', fontStyle: 'normal', color: 'var(--gold)' }}
+            style={{ display: 'inline-block', fontStyle: 'normal', color: 'var(--gold)', backfaceVisibility: 'hidden', willChange: 'transform' }}
           >
             {char}
           </motion.span>
